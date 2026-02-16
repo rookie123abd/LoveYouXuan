@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="stylesheet" href="style/LoveYouBaby.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>致我最好的闺蜜 🌟</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(to bottom, #0a0a2e 0%, #1a1a4e 50%, #2a2a6e 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #fff;
+        }
+
+        /* 星空背景 */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* 主容器 */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 开场打字机区域 */
+        .intro-section {
+            text-align: center;
+            padding: 60px 20px;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .typewriter-text {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            min-height: 100px;
+            line-height: 1.6;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background: #ffd700;
+            margin-left: 5px;
+            animation: blink 0.7s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* 内容区域 */
+        .content-section {
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .content-section.visible {
+            display: block;
+            opacity: 1;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2em;
+            margin: 40px 0 30px;
+            color: #ffd700;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+
+        /* 倒计时模块 */
+        .countdown-container {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            margin: 30px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .countdown-title {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #87ceeb;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .time-box {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid #ffd700;
+            border-radius: 15px;
+            padding: 20px 30px;
+            min-width: 120px;
+        }
+
+        .time-value {
+            font-size: 3em;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .time-label {
+            font-size: 0.9em;
+            color: #aaa;
+            margin-top: 5px;
+        }
+
+        /* 回忆时光轴 */
+        .memory-timeline {
+            padding: 40px 20px;
+        }
+
+        .memory-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 40px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .memory-item:hover {
+            transform: scale(1.02);
+        }
+
+        .memory-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .memory-photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            flex-shrink: 0;
+            margin: 0 20px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #ffd700;
+        }
+
+        .memory-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .memory-photo-placeholder {
+            font-size: 1.2em;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .memory-content {
+            flex: 1;
+        }
+
+        .memory-date {
+            color: #ffd700;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .memory-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #e0e0e0;
+        }
+
+        /* 跳舞小人动画 */
+        .dancer-section {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .dancer {
+            width: 100px;
+            height: 150px;
+            margin: 0 auto;
+            position: relative;
+            animation: dance 1s infinite;
+        }
+
+        .dancer-body {
+            width: 60px;
+            height: 100px;
+            background: linear-gradient(to bottom, #ff69b4, #ff1493);
+            border-radius: 30px 30px 20px 20px;
+            position: absolute;
+            bottom: 30px;
+            left: 20px;
+        }
+
+        .dancer-head {
+            width: 50px;
+            height: 50px;
+            background: #ffdab9;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 25px;
+        }
+
+        .dancer-eyes {
+            position: absolute;
+            top: 20px;
+            left: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .eye {
+            width: 8px;
+            height: 8px;
+            background: #333;
+            border-radius: 50%;
+        }
+
+        .dancer-mouth {
+            position: absolute;
+            top: 32px;
+            left: 18px;
+            width: 14px;
+            height: 7px;
+            border: 2px solid #333;
+            border-top: none;
+            border-radius: 0 0 14px 14px;
+        }
+
+        .dancer-arm {
+            width: 15px;
+            height: 50px;
+            background: #ff69b4;
+            border-radius: 10px;
+            position: absolute;
+            top: 55px;
+        }
+
+        .dancer-arm.left {
+            left: 0;
+            animation: waveLeft 0.5s infinite;
+        }
+
+        .dancer-arm.right {
+            right: 0;
+            animation: waveRight 0.5s infinite;
+        }
+
+        .dancer-leg {
+            width: 15px;
+            height: 40px;
+            background: #4169e1;
+            border-radius: 10px;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .dancer-leg.left {
+            left: 25px;
+            animation: legLeft 0.5s infinite;
+        }
+
+        .dancer-leg.right {
+            right: 25px;
+            animation: legRight 0.5s infinite;
+        }
+
+        @keyframes dance {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes waveLeft {
+            0%, 100% { transform: rotate(-30deg); }
+            50% { transform: rotate(30deg); }
+        }
+
+        @keyframes waveRight {
+            0%, 100% { transform: rotate(30deg); }
+            50% { transform: rotate(-30deg); }
+        }
+
+        @keyframes legLeft {
+            0%, 100% { transform: rotate(-20deg); }
+            50% { transform: rotate(20deg); }
+        }
+
+        @keyframes legRight {
+            0%, 100% { transform: rotate(20deg); }
+            50% { transform: rotate(-20deg); }
+        }
+
+        .funny-text {
+            font-size: 1.5em;
+            color: #ffd700;
+            margin-top: 30px;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* 祝福语区域 */
+        .wishes-section {
+            padding: 40px 20px;
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 20px;
+            margin: 30px 0;
+        }
+
+        .wish-item {
+            padding: 20px;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #ffd700;
+            border-radius: 10px;
+            font-size: 1.2em;
+            line-height: 1.8;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 烟花按钮 */
+        .firework-btn {
+            display: block;
+            margin: 40px auto;
+            padding: 20px 50px;
+            font-size: 1.3em;
+            background: linear-gradient(to right, #ff69b4, #ff1493);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.4);
+        }
+
+        .firework-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(255, 105, 180, 0.6);
+        }
+
+        .firework-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* 烟花效果 */
+        .firework {
+            position: fixed;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            animation: explode 1s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .typewriter-text {
+                font-size: 1.5em;
+            }
+
+            .memory-item,
+            .memory-item:nth-child(even) {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .memory-photo {
+                width: 250px;
+                height: 250px;
+                margin: 0 0 20px 0;
+            }
+
+            .time-box {
+                min-width: 80px;
+                padding: 15px 20px;
+            }
+
+            .time-value {
+                font-size: 2em;
+            }
+
+            .section-title {
+                font-size: 1.5em;
+            }
+        }
+
+        /* 滚动提示 */
+        .scroll-hint {
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        /* 结尾区域 */
+        .ending-section {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .ending-text {
+            font-size: 1.8em;
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .signature {
+            font-size: 1.3em;
+            color: #87ceeb;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+</head>
+<body>
+    <!-- 星空背景 -->
+    <div class="stars" id="stars"></div>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 开场打字机区域 -->
+        <div class="intro-section" id="introSection">
+            <div class="typewriter-text" id="typewriterText"></div>
+            <span class="cursor" id="cursor"></span>
+        </div>
+
+        <!-- 内容区域 -->
+        <div class="content-section" id="contentSection">
+            <!-- 倒计时模块 -->
+            <div class="section-title">✨ 新年到啦！！！ ✨</div>
+            <div class="countdown-container">
+                <div class="countdown-title">让我们一起迎接2026年的到来！</div>
+                <div class="countdown-timer" id="countdown">
+                    <div class="time-box">
+                        <div class="time-value" id="days">00</div>
+                        <div class="time-label">天</div>
+                    </div>
+                    <div class="time-box">
+                        <div class="time-value" id="hours">00</div>
+                        <div class="time-label">时</div>
+                    </div>
+                    <div class="time-box">
+                        <div class="time-value" id="minutes">00</div>
+                        <div class="time-label">分</div>
+                    </div>
+                    <div class="time-box">
+                        <div class="time-value" id="seconds">00</div>
+                        <div class="time-label">秒</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 滚动提示 -->
+            <div class="scroll-hint">⬇️ 往下看，有惊喜等着你 ⬇️</div>
+
+            <!-- 回忆时光轴 -->
+            <div class="section-title">💝 我们的回忆 💝</div>
+            <div class="memory-timeline">
+                <div class="memory-item">
+                    <div class="memory-photo">
+                        <img src="img/1.jpg" alt="我和璇baby的第一天" style="max-width: 100%; height: auto;">
+                    </div>
+                    <br class="memory-content">
+                        <div class="memory-date">📅第一天</div>
+                        <div class="memory-text">
+                            研究生上课第一天，2025年9月15日，星期一，第56节，生成式人工智能课程，是我们第一次见面的时候。老师让我们就近组队，我们加了联系方式，“rookiebebetter”请求添加“w璇”的微信时刻是2025年9月15日15:47。<br><br>这一天真的是好棒的一天:) 真开心遇到你，认识你~
+                        </div>
+                    </div>
+              
+
+                <div class="memory-item">
+                    <div class="memory-photo">
+                        <img src="img/2.jpg" alt="我们竟然都坐在了第二排" style="max-width: 100%; height: auto;">
+                    </div>
+                    <div class="memory-content">
+                        <div class="memory-date">📅交集</div>
+                        <div class="memory-text">
+                            这已经是第二节生成式人工智能课程啦，12:30-14:00。你上着课时候给我发消息说“我们下节课坐一起吗”。我扭头看了看你，说“是你吗？”。咱俩发觉双方就在自己的身边~我们都在第二排坐着，而且第二排只有咱俩，这就是缘分吧~
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-item">
+                    <div class="memory-photo">
+                        <a href="img/3.jpg" data-lightbox="image-1">
+                            <img src="img/3.jpg">
+                        </a>
+                    </div>
+                    <div class="memory-content">
+                        <div class="memory-date">📅 数据库组队之“我不把你抛弃”</div>
+                        <div class="memory-text">
+                            2025年9月24日，数据库老师也让大家组队。当时我们没有坐一块儿，我和我舍友坐一块了，我这一排本来组了个队，然后差一个人就满了，那个人说她拉她舍友，那样我就没法拉你过来，我直接和她们说我退队，并且坚定和我舍友表示“我不能抛弃她”。
+                        </div>
+                    </div>
+                </div>
+
+
+                <p>点点滴滴的回忆~</p>>
+                <div class="photo-wall">
+                    
+                    <div class="photo-card">
+                        <img src="img/4.jpg" alt="暧昧" style="max-width: 100%; height: auto;">
+                        <br>
+                        <img src="img/5.jpg" alt="暧昧" style="max-width: 100%; height: auto;">
+                        <figcaption>暧昧❥(^_-)"想你了"</figcaption>
+                    </div>
+                    
+                    <div class="photo-card">
+                        <img src="img/6.jpg" alt="璇baby喜欢吃薯片" style="max-width: 100%; height: auto;">
+                        <br>
+                        <img src="img/7.jpg" alt="薯片收买了璇baby" style="max-width: 100%; height: auto;">
+                        <figcaption>璇baby喜欢吃薯片</figcaption>
+                    
+                    </div>
+
+                    <div class="photo-card">
+                        <img src="img/8.jpg" alt="关于Fly的故事" style="max-width: 100%; height: auto;">
+                        <br>
+                        <img src="img/9.jpg" alt="关于Fly的故事" style="max-width: 100%; height: auto;">
+                        <figcaption>关于Fly的故事</figcaption>
+                    </div>
+                    <div class="photo-card">
+                        <img src="img/10.jpg" alt="关于Fly的故事" style="max-width: 100%; height: auto;">
+                        <figcaption>每次都想全力向你飞奔呀</figcaption>
+                    </div>
+                    <!-- 可以继续添加更多照片 -->
+                </div>
+                
+
+
+                <h3>璇宝宝给我了好多好东西，感动~</h3>>
+                <div class="photo-wall">
+                    <div class="photo-card">
+                        <img src="img/GiftX1_1.jpg" alt="肥皂" style="max-width: 100%; height: auto;">
+                        <br>
+                        <img src="img/GiftX1_2.jpg" alt="肥皂"style="max-width: 100%; height: auto;">
+                        <br>
+                        <img src="img/GiftX1_3.jpg" alt="肥皂"style="max-width: 100%; height: auto;">
+                        <figcaption>JJ的肥皂（❥(^_-) 你说命运很坏吧幸好有我 ❥(^_-)）</figcaption>
+                    </div>
+                    
+                    <div class="photo-card">
+                        <img src="img/GiftX2_1.jpg" alt="亲手编制的手套" style="max-width: 100%; height: auto;">
+                        <br>
+                        <img src="img/GiftX2_2.jpg" alt="亲手编制的手套" style="max-width: 100%; height: auto;">
+                        <figcaption>亲手编制的手套，满满都是爱，我想掉小珍珠</figcaption>
+                    </div>
+                    
+                    <div class="photo-card">
+                        <img src="img/GiftX3.jpg" alt="圣诞礼物曲奇" style="max-width: 100%; height: auto;">
+                        <figcaption>圣诞礼物曲奇饼干，都已经被我吃到肚子里啦 {O.O} </figcaption>
+                    </div>
+                    <div class="photo-card">
+                        <img src="img/GiftX4_1.jpg" alt="圣诞礼物曲奇" style="max-width: 100%; height: auto;">
+                        <br>
+                        <img src="img/GiftX4_2.jpg" alt="圣诞礼物曲奇" style="max-width: 100%; height: auto;">
+                        <figcaption>开学之后 宝宝会拿给我嗷~ 马上到达我手里，嘻嘻嘻</figcaption>
+                    </div>
+                    
+                    <!-- 可以继续添加更多照片 -->
+                </div>
+
+
+                <h3>永远爱璇宝，你这个女人~等程发达了给你更加昂贵的</h3>>
+                <div class="photo-wall">
+
+                    <div class="photo-card">
+                        <img src="img/GiftC1.jpg" alt="计算器" style="max-width: 100%; height: auto;">
+                        
+                        <figcaption>计算器你一个我一个</figcaption>
+                    </div>
+                    
+                    <div class="photo-card">
+                        <img src="img/GiftC2.jpg" alt="零食" style="max-width: 100%; height: auto;">
+
+                        <figcaption>各种各样的零食，宝宝以后一定要少吃辣</figcaption>
+                    </div>
+                    
+                    <div class="photo-card">
+                        <img src="img/GiftC3_1.jpg" alt="圣诞礼物红色鸿星尔克围巾" style="max-width: 100%; height: auto;">
+                        <br>
+                        <img src="img/GiftC3_2.jpg" alt="圣诞礼物红色鸿星尔克围巾" style="max-width: 100%; height: auto;">
+                        <figcaption>圣诞礼物红色鸿星尔克围巾，宝宝说软软的，很喜欢，开心 :) </figcaption>
+                    </div>
+
+                    <div class="photo-card">
+                        <img src="img/GiftC4.jpg" alt="小粉猪" style="max-width: 100%; height: auto;">
+
+                        <figcaption>小粉猪，大可爱，睡得早、起的也早的好习惯宝宝</figcaption>
+                    </div>
+
+
+                </div>
+
+                <h2>不变的搞笑女，你就是高雅人士企鹅本鹅吧</h2>
+                <div>
+                    <img src="img/gaoya1.jpeg" style="width: 300px; height: auto;">
+                    <img src="img/gaoya2.gif" style="width: 300px; height: auto;" alt="动图">
+                </div>
+
+                <div class="video-box">
+                    <!-- 第一个视频 -->
+                    <div class="video-item">
+                        <video controls poster="poster1.jpg">
+                            <source src="videos/1.mp4" type="video/mp4">
+                            <source src="videos/2.mp4" type="video/webm">
+                            您的浏览器不支持视频播放
+                        </video>
+                        <p>哈哈哈哈哈哈</p>
+                    </div>
+                    
+                    <!-- 第二个视频 -->
+                    <div class="video-item">
+                        <video controls poster="poster2.jpg">
+                            <source src="videos/2.mp4" type="video/mp4">
+                            <source src="videos/2.mp4" type="video/webm">
+                            您的浏览器不支持视频播放
+                        </video>
+                        <p>嘎嘎嘎嘎嘎嘎</p>
+                    </div>
+                </div>
+            
+                <div class="memory-item">
+                    <div class="memory-photo">
+                        <img src="img/251121.jpg" alt="" style="max-width: 100%; height: auto;">
+                    </div>
+                    <div class="memory-content">
+                        <div class="memory-date">📅2025年11月21日</div>
+                        <div class="memory-text">
+                            2025年11月21日，我们首先进行了上午船厂PARK参加上合会议，中午hospital历险记，然后下午逛共青国家森林公园，晚上去吃了萨莉亚🍕，你说“蜗牛真的很好吃”。我大为震惊 O.O
+                            <br>（PS：一定要天天开心，身体健康嗷~身体是革命的本钱；一定要多多去更多的地方嗷~看万千世界，与你一起）😊
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-item">
+                    <div class="memory-photo">
+                        <img src="img/251123.jpg" alt="" style="max-width: 100%; height: auto;">
+                    </div>
+                    <div class="memory-content">
+                        <div class="memory-date">📅2025年11月23日</div>
+                        <div class="memory-text">
+                            2025年11月23日，我们吃过新白鹿之后一起散步，看了夜景，一起嗨歌，随地大小唱，hxd还有他的请客的朋友都觉得咱俩和小疯子一样儿。你也带上了王冠，是闪闪发光的宝贝~~~🌞
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-item">
+                    <div class="memory-photo">
+                       <div>
+                        <img src="img/Letusmovie3.jpg" alt="" style="max-width: 100%; height: auto;"> </div>
+                        <div><img src="img/Letusmovie5.jpg" alt="" style="max-width: 100%; height: auto;"></div>>
+                        <div><img src="img/Letusmovie4.jpg" alt="" style="max-width: 100%; height: auto;"></div>>
+                    </div>
+                    <div class="memory-content">
+                        <div class="memory-date">📅2025年11月27日</div>
+                        <div class="memory-text">
+                            2025年11月27日，星期四，我上完晚课工程伦理，我们一起去蓝鲸影城吃了麦当劳，看了《疯狂动物城2》,喝了甜甜的奶茶，沉浸式看电影，咱俩都看笑了，也看哭了，泪点和笑点都稳定发挥。👍
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="memory-item">
+                    <div class="memory-photo">
+                        <img src="img/251130.jpg" alt="" style="max-width: 100%; height: auto;">
+                    </div>
+                    <div class="memory-content">
+                        <div class="memory-date">📅2025年11月30日</div>
+                        <div class="memory-text">
+                            2025年11月30日，我们去蓝鲸买了一波水果之后，去歪胖子重庆老火锅店搓了一顿，第一次从璇宝宝口中听到“辣死了”，我们就一直吃啊吃啊，吃到员工收拾店铺，准备关店，电梯停了，蓝鲸即将关门。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-item">
+                    <div class="memory-photo">
+                        <img src="img/251205.jpg" alt="" style="max-width: 100%; max-height: 100%; width: auto; height: auto;">
+                    </div>
+                    <div class="memory-content">
+                        <div class="memory-date">📅2025年12月05日</div>
+                        <div class="memory-text">
+                            2025年12月05日，我生病了，宝宝关心我，抱抱我，说如果我还难受的话陪我去医院。❤️
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-item">
+                    <div class="memory-photo">
+                        <img src="img/ShuiYiX.jpg" alt="" 
+                        style="max-width: 100%; max-height: 100%; width: auto; height: auto;">
+                    </div>
+                    <div class="memory-content">
+                        <div class="memory-date">📅2025年12月13日</div>
+                        <div class="memory-text">
+                            2025年12月13日，你刚开完组会，没吃晚饭，穿睡衣出门，一起去夜市吃东西，买到餐后就近找了个店铺吃，真给宝宝冻的不轻。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-item">
+                    <div class="memory-photo">
+                        <div><img src="img/251215_1.jpg" alt="" style="max-width: 100%; height: auto;"></div>>
+                        <div><img src="img/251215_2.jpg" alt="" style="max-width: 100%; height: auto;"></div>
+                    </div>
+                    <div class="memory-content">
+                        <div class="memory-date">📅2025年12月15日</div>
+                        <div class="memory-text">
+                            2025年12月15日，下午我刚刚分享了我的左手被箭划破一些的图片，宝宝晚上就说她的手被烫伤了，也给我看了好多手的战损图:( 
+                            <br>以后一定要多加小心啊~蠢宝宝 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-item">
+                    <div class="memory-photo">
+                        <img src="img/GiftC3_2.jpg" alt="" style="max-width: 100%; max-height: 100%; width: auto; height: auto;">
+                    </div>
+                    <div class="memory-content">
+                        <div class="memory-date">📅2025年12月24日</div>
+                        <div class="memory-text">
+                            2025年12月24日，我们互换圣诞礼物，然后一起大笑卡片上“憨憨”这个神奇的词汇。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-item">
+                    <div class="memory-photo">
+                        <img src="img/260108.jpg" alt="" style="max-width: 100%; height: auto;">
+                    </div>
+                    <div class="memory-content">
+                        <div class="memory-date">📅2025年1月8日</div>
+                        <div class="memory-text">
+                            2025年1月8日， 我们去蓝鲸吃了东北范儿，璇宝宝大气请客，然后我们吃过饭后去娃娃训练营抓了娃娃。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-item">
+                    <div class="memory-photo">
+                        <img src="img/260117.jpg" alt="" style="max-width: 100%; height: auto;">
+                    </div>
+                    <div class="memory-content">
+                        <div class="memory-date">📅2025年1月17日</div>
+                        <div class="memory-text">
+                            2025年1月17日，我们中午去了KTV尽情唱歌，畅饮coffee，璇宝的《那个女孩》唱的真好听，每每都在唱我，一展歌喉，回去路上，粘着璇宝，舔着璇宝，不知道是谁害羞，抵达三餐时候，碰见了两个小小的猫咪，进行猫条的投喂。
+                        </div>
+                    </div>
+                </div>
+
+                <h2>点击下方粉色按钮，来移步时光照相馆，这里有可爱的你，美美的你，逗比的你，害羞的你，学习的你，逛街的你，玩耍的你，犯困的你，各种各样的你~脑子里心里全是你</h2>
+                <a href="ShiGuangZhaoXiangGuan.html">
+                    <button style="padding: 10px 20px; background: #ffb6c1; border: none; border-radius: 20px; cursor: pointer;">
+                        📸 时光照相馆
+                    </button>
+                </a>
+                <div class="memory-item">
+                    <div class="memory-photo">
+                        <div class="memory-photo-placeholder">🌟<br>未完待续<br></div>
+                    </div>
+                    <div class="memory-content">
+                        <div class="memory-date">📅 永远在继续</div>
+                        <div class="memory-text">
+                            我们的友谊就像这星空一样，永远闪耀。谢谢你来到我的世界，我遇见你，认识你，了解你，喜欢你，爱上你……未来的日子里，我们还要一起疯一起笑！
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>我的全能女友 之前买过尤克里里，自学过一点，会弹四根弦的。钢琴十级，跳舞满级，喜欢吃薯片 ......</p>
+
+            <div class="section-title">💃 给我的搞笑女闺蜜 💃</div>
+            <div class="dancer-section">
+                <div class="funny-text">
+                    🎵 我最好的闺蜜就是最棒的！🎵
+                    <br>
+                    唱跳！嗨起来！新年就要开心！
+                </div>
+            </div>
+
+            <!-- 新年祝福 -->
+            <div class="section-title">🌟 我的新年祝福 🌟</div>
+            <div class="wishes-section">
+                <div class="wish-item" style="animation-delay: 0.1s;">
+                    亲爱的，新年快乐！愿你2026年每天都有好心情，笑容永远灿烂如花！🌸
+                </div>
+                <div class="wish-item" style="animation-delay: 0.3s;">
+                    希望你继续做那个自信、幽默、闪闪发光的自己，所有的梦想都能成真！✨
+                </div>
+                <div class="wish-item" style="animation-delay: 0.5s;">
+                    愿我们的友谊像星星一样，永远闪耀，永远温暖彼此的心！💖
+                </div>
+                <div class="wish-item" style="animation-delay: 0.7s;">
+                    新的一年，我们一起继续疯、继续笑、继续创造更多美好的回忆！🎉
+                </div>
+                <div class="wish-item" style="animation-delay: 0.9s;">
+                    最重要的，你要一直健健康康、开开心心的！你是最好的！💪
+                </div>
+            </div>
+
+            <!-- 烟花按钮 -->
+            <button class="firework-btn" id="fireworkBtn" onclick="launchFireworks()">
+                🎆 点我放烟花庆祝！🎆
+            </button>
+
+            <!-- 结尾 -->
+            <div class="ending-section">
+                <div class="ending-text">
+                    最好的闺蜜璇宝，新年快乐！
+                    <br>
+                    愿我们的友谊天长地久！
+                </div>
+                <div class="signature">
+                    —— 爱你的程 🌟
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 生成星空背景
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 200;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = Math.random() * 3 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                star.style.animationDuration = (Math.random() * 2 + 1) + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // 打字机效果
+        const introText = "致我最亲爱的闺蜜...\n\n明天就是新年啦！\n\n我为你准备了一个特别的惊喜！\n\n准备好了吗？\n\n⬇️⬇️⬇️\n点击表示准备好了！";
+        let charIndex = 0;
+        const typewriterElement = document.getElementById('typewriterText');
+
+        function typeWriter() {
+            if (charIndex < introText.length) {
+                const char = introText.charAt(charIndex);
+                if (char === '\n') {
+                    typewriterElement.innerHTML += '<br>';
+                } else {
+                    typewriterElement.innerHTML += char;
+                }
+                charIndex++;
+                setTimeout(typeWriter, 100);
+            } else {
+                // 打字完成后，显示内容
+                setTimeout(() => {
+                    document.getElementById('introSection').style.display = 'none';
+                    const contentSection = document.getElementById('contentSection');
+                    contentSection.classList.add('visible');
+                }, 1500);
+            }
+        }
+
+        // 新年倒计时
+        function updateCountdown() {
+            const newYear = new Date('2026-01-01T00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = newYear - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<div class="time-value">🎉 新年快乐！🎉</div>';
+            }
+        }
+
+        // 烟花效果
+        function launchFireworks() {
+            const colors = ['#ff69b4', '#ffd700', '#ff1493', '#87ceeb', '#98fb98', '#dda0dd', '#f0e68c'];
+
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    createFirework(
+                        Math.random() * window.innerWidth,
+                        Math.random() * window.innerHeight * 0.6 + 50,
+                        colors[Math.floor(Math.random() * colors.length)]
+                    );
+                }, i * 300);
+            }
+        }
+
+        function createFirework(x, y, color) {
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            firework.style.left = x + 'px';
+            firework.style.top = y + 'px';
+
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.background = color;
+
+                const angle = (i / 30) * Math.PI * 2;
+                const velocity = Math.random() * 100 + 50;
+                const tx = Math.cos(angle) * velocity;
+                const ty = Math.sin(angle) * velocity;
+
+                particle.style.setProperty('--tx', tx + 'px');
+                particle.style.setProperty('--ty', ty + 'px');
+                particle.style.animation = `explode ${Math.random() * 0.5 + 0.5}s ease-out forwards`;
+
+                particle.style.transform = `translate(${tx}px, ${ty}px)`;
+                firework.appendChild(particle);
+            }
+
+            document.body.appendChild(firework);
+
+            setTimeout(() => {
+                firework.remove();
+            }, 1500);
+        }
+
+        // 页面加载完成后执行
+        window.onload = function() {
+            createStars();
+            typeWriter();
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        };
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+
+
+    <audio id="bgMusic" loop>
+        <source src="audios/追寻你.mp3" type="audio/mpeg">
+        <source src="audios/追寻你.mp3" type="audio/ogg">
+    </audio>
+    
+    <script>
+        // 用户点击页面任意位置后播放音乐
+        document.body.addEventListener('click', function playMusic() {
+            const music = document.getElementById('bgMusic');
+            music.volume = 0.4; // 设置音量 40%
+            music.play().catch(e => console.log('播放失败:', e));
+        }, { once: true }); // { once: true } 表示只执行一次
+    </script>
+</body>
+</html>
